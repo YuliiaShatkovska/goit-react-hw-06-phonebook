@@ -1,3 +1,5 @@
+import { TitleStyle } from './Title.styled';
+
 export const Title = ({ children }) => {
-  return <h2>{children}</h2>;
+  return <TitleStyle>{children}</TitleStyle>;
 };

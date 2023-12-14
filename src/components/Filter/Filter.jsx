@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid';
-import css from './Filter.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContact } from '../../redux/filter/filterSlice';
-import { Title } from 'components/Title/Title';
+import { TitleStyle } from 'components/Title/Title.styled';
+import { FilterContainer, FilterInput } from './Filter.styled';
 
 const Filter = () => {
   const filterId = nanoid();
@@ -18,18 +18,19 @@ const Filter = () => {
   };
 
   return (
-    <div className={css.filter_container}>
-      <Title>Contacts</Title>
-      <label htmlFor={filterId}>Find contacts by name</label>
-      <input
-        type="text"
-        name="filter"
-        id={filterId}
-        value={filter}
-        onChange={onChange}
-        className={css.filter_input}
-      />
-    </div>
+    <>
+      <TitleStyle>Contacts</TitleStyle>
+      <FilterContainer>
+        <label htmlFor={filterId}>Find contacts by name</label>
+        <FilterInput
+          type="text"
+          name="filter"
+          id={filterId}
+          value={filter}
+          onChange={onChange}
+        />
+      </FilterContainer>
+    </>
   );
 };
 
